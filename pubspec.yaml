@@ -50,6 +50,7 @@ flutter:
      - images/logo.svg
      - images/union.svg
      - images/icon_calendar.svg
+     - images/ic_car.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
