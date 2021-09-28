@@ -12,11 +12,11 @@ class SplashLogo extends StatefulWidget {
 }
 
 class _SplashLogoState extends State<SplashLogo> {
-  bool _visibleLogo = false;
+  bool _visibleLogo = true;
 
   @override
   void initState() {
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 3), () {
       setState(() {
         _visibleLogo = !_visibleLogo;
         _goToSplashUnion(context);

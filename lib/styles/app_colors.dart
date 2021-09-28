@@ -5,4 +5,6 @@ class AppColors {
   static final grayDart = Color.fromRGBO(71, 71, 77, 1);
   static final gray300 = Color.fromRGBO(235, 235, 240, 1);
   static final gray400 = Color.fromRGBO(122, 122, 128, 1);
+  static final primary = Color.fromRGBO(220, 22, 55, 1);
+  static final black100 = Color.fromRGBO(41, 41, 46, 1);
 }

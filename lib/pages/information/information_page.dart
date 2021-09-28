@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rentx/pages/information/widget/first_page_widget.dart';
 import 'package:rentx/pages/information/widget/second_page_widget.dart';
+import 'package:rentx/pages/welcome/welcome_page.dart';
 import 'package:rentx/styles/app_colors.dart';
 
 class InformationPage extends StatefulWidget {
@@ -56,6 +57,10 @@ class _InformationPageState extends State<InformationPage> {
                 controller.animateToPage(1,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn);
+                if (currentIndex == 1) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => WelcomePage()));
+                }
               },
             )
           ],
