@@ -18,7 +18,7 @@ class SecondPageWidget extends StatelessWidget {
             Text(
               '02',
               style: TextStyle(
-                  color: AppColors.gray300,
+                  color: AppColors.graySecond,
                   fontSize: 55,
                   fontWeight: FontWeight.w900),
             )
@@ -30,7 +30,7 @@ class SecondPageWidget extends StatelessWidget {
           child: Text(
             "Depois, escolha o carro",
             style: TextStyle(
-                color: AppColors.grayDart,
+                color: AppColors.grayTitle,
                 fontSize: 40,
                 fontWeight: FontWeight.w900),
             textAlign: TextAlign.left,
@@ -41,7 +41,7 @@ class SecondPageWidget extends StatelessWidget {
           width: MediaQuery.of(context).size.width / 2,
           child: Text(
             "Vários modelos para você dirigir seguro, com conforto e segurança.",
-            style: TextStyle(color: AppColors.gray400, height: 1.5),
+            style: TextStyle(color: AppColors.grayText, height: 1.5),
           ),
         )
       ],

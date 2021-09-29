@@ -20,7 +20,7 @@ class FirstPageWidget extends StatelessWidget {
               Text(
                 '01',
                 style: TextStyle(
-                    color: AppColors.gray300,
+                    color: AppColors.graySecond,
                     fontSize: 55,
                     fontWeight: FontWeight.w900),
               )
@@ -32,7 +32,7 @@ class FirstPageWidget extends StatelessWidget {
             child: Text(
               "Primeiro, escolha a data",
               style: TextStyle(
-                  color: AppColors.grayDart,
+                  color: AppColors.grayTitle,
                   fontSize: 40,
                   fontWeight: FontWeight.w900),
               textAlign: TextAlign.left,
@@ -43,7 +43,7 @@ class FirstPageWidget extends StatelessWidget {
             width: MediaQuery.of(context).size.width / 2,
             child: Text(
               "Você é quem define um período, e nós mostraremosos carros disponíveis.",
-              style: TextStyle(color: AppColors.gray400, height: 1.5),
+              style: TextStyle(color: AppColors.grayText, height: 1.5),
             ),
           )
         ],

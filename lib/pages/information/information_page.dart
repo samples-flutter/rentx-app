@@ -51,16 +51,17 @@ class _InformationPageState extends State<InformationPage> {
             InkWell(
               child: Icon(Icons.navigate_next),
               onTap: () {
-                setState(() {
-                  currentIndex = 1;
-                });
                 controller.animateToPage(1,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn);
-                if (currentIndex == 1) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => WelcomePage()));
-                }
+                setState(() {
+                  if (currentIndex == 0) {
+                    currentIndex = 1;
+                  } else {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WelcomePage()));
+                  }
+                });
               },
             )
           ],
@@ -75,7 +76,7 @@ class _InformationPageState extends State<InformationPage> {
       height: isIndicator ? 8 : 5,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isIndicator ? AppColors.grayDart : AppColors.grayLight),
+          color: isIndicator ? AppColors.grayTitle : AppColors.grayTextDetails),
     );
   }
 

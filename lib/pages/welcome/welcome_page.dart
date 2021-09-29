@@ -36,13 +36,18 @@ class WelcomePage extends StatelessWidget {
                     children: [
                       buttonCustom(context, "Login", AppColors.primary, () {}),
                       buttonCustom(
-                          context, "Cadastrar", AppColors.black100, () {}),
+                          context, "Cadastrar", AppColors.black, () {}),
                     ],
                   ),
                   SizedBox(height: 43),
-                  Text(
-                    "Voltar",
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "Voltar",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
                   )
                 ],
               ),
