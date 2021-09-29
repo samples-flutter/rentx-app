@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rentx/pages/login/login_page.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:rentx/pages/splashscreen/splash_union.dart';
 
 void main() {
-  runApp(MyApp());
+ initializeDateFormatting().then((value) => runApp(MyApp()));
 }
 
 Map<int, Color> color = {

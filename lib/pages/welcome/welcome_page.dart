@@ -42,7 +42,8 @@ class WelcomePage extends StatelessWidget {
                           label: "Login",
                           color: AppColors.primary,
                           action: () {
-                            MaterialPageRoute(builder: (_) => LoginPage());
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => LoginPage()));
                           },
                         ),
                       ),

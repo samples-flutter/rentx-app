@@ -43,6 +43,10 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
               child: Container(
                 height: 56,
                 child: TextField(
+                  obscureText: widget.inputType == InputType.password,
+                  keyboardType: widget.inputType == InputType.email
+                      ? TextInputType.emailAddress
+                      : TextInputType.visiblePassword,
                   onChanged: widget.onChange,
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 23, top: 20),
