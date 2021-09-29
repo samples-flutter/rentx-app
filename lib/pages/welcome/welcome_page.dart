@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:rentx/app/widget/button_rentx.dart';
+import 'package:rentx/pages/login/login_page.dart';
 import 'package:rentx/styles/app_colors.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -34,9 +36,26 @@ class WelcomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      buttonCustom(context, "Login", AppColors.primary, () {}),
-                      buttonCustom(
-                          context, "Cadastrar", AppColors.black, () {}),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: ButtonRentx(
+                          label: "Login",
+                          color: AppColors.primary,
+                          action: () {
+                            MaterialPageRoute(builder: (_) => LoginPage());
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: ButtonRentx(
+                          label: "Cadastrar",
+                          color: AppColors.black,
+                          action: () {
+                            MaterialPageRoute(builder: (_) => LoginPage());
+                          },
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(height: 43),
@@ -52,25 +71,6 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buttonCustom(context, String label, Color color, Function() action) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.4,
-      height: 56,
-      child: ElevatedButton(
-        onPressed: action,
-        child: Text(label),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(color),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0.0),
-            ),
           ),
         ),
       ),

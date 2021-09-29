@@ -16,4 +16,10 @@ class AppColors {
   //hover
   static final hoverRed = Color.fromRGBO(253, 237, 239, 1);
   static final hoverGreen = Color.fromRGBO(218, 243, 229, 1);
+
+
+  static final background = Color.fromRGBO(242, 242, 250, 1);
+  static final textDark = Color.fromRGBO(115, 115, 128, 1);
+
+
 }
