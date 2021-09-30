@@ -12,6 +12,9 @@ class SearchCarPage extends StatefulWidget {
 }
 
 class _SearchCarPageState extends State<SearchCarPage> {
+  String? dataStartString;
+  String? dataEndString;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -50,13 +53,7 @@ class _SearchCarPageState extends State<SearchCarPage> {
                               fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          '_________________________',
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: AppColors.grayText,
-                              fontWeight: FontWeight.w500),
-                        ),
+                        showDate(dataStartString),
                       ],
                     ),
                     SvgPicture.asset('images/arrow.svg'),
@@ -71,13 +68,7 @@ class _SearchCarPageState extends State<SearchCarPage> {
                               fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          '_________________________',
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: AppColors.grayText,
-                              fontWeight: FontWeight.w500),
-                        ),
+                        showDate(dataEndString),
                       ],
                     ),
                   ],
@@ -85,7 +76,19 @@ class _SearchCarPageState extends State<SearchCarPage> {
               ],
             ),
           ),
-          Expanded(child: CalendarWidget()),
+          Expanded(
+              child: CalendarWidget(
+            onChangeStart: (start) {
+              setState(() {
+                dataStartString = start;
+              });
+            },
+            onChangeEnd: (end) {
+              setState(() {
+                dataEndString = end;
+              });
+            },
+          )),
           Container(
             padding: EdgeInsets.only(left: 25, right: 25, bottom: 10),
             width: size.width,
@@ -95,5 +98,21 @@ class _SearchCarPageState extends State<SearchCarPage> {
         ],
       ),
     );
+  }
+
+  Widget showDate(String? value) {
+    return value != null
+        ? Text(
+            value,
+            style: TextStyle(
+                fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+          )
+        : Text(
+            '_________________________',
+            style: TextStyle(
+                fontSize: 10,
+                color: AppColors.grayText,
+                fontWeight: FontWeight.w500),
+          );
   }
 }
