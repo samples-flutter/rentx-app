@@ -48,9 +48,9 @@ class _InformationPageState extends State<InformationPage> {
                 indicatorPage(!isFirstPage())
               ],
             ),
-            InkWell(
-              child: Icon(Icons.navigate_next),
-              onTap: () {
+            IconButton(
+              icon: Icon(Icons.navigate_next),
+              onPressed: () {
                 controller.animateToPage(1,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn);

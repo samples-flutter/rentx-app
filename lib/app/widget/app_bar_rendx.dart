@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:rentx/styles/app_colors.dart';
 
 class AppBarRendX extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarRendX({Key? key}) : super(key: key);
+  final Function() onBackClick;
+
+  const AppBarRendX({Key? key, required this.onBackClick}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      leading: Icon(Icons.arrow_back_ios_outlined, color: AppColors.grayTextDetails,),
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_ios_outlined,
+          color: AppColors.grayTextDetails,
+        ),
+        onPressed: onBackClick,
+      ),
     );
   }
 

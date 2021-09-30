@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rentx/app/widget/button_rentx.dart';
+import 'package:rentx/pages/main_navigation/main_navigation_page.dart';
 import 'package:rentx/pages/search_car/widget/calendar_widget.dart';
 import 'package:rentx/styles/app_colors.dart';
 
@@ -93,7 +94,12 @@ class _SearchCarPageState extends State<SearchCarPage> {
             padding: EdgeInsets.only(left: 25, right: 25, bottom: 10),
             width: size.width,
             child: ButtonRentx(
-                label: "Confirmar", color: AppColors.primary, action: () => {}),
+                label: "Confirmar",
+                color: AppColors.primary,
+                action: () => {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => MainNavigation()))
+                    }),
           )
         ],
       ),
