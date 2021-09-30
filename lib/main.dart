@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'package:rentx/pages/splashscreen/splash_union.dart';
 
 void main() {
- initializeDateFormatting().then((value) => runApp(MyApp()));
+ runApp(MyApp());
 }
 
 Map<int, Color> color = {
@@ -26,6 +27,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: [const Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
