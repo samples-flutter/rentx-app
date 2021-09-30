@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentx/styles/app_colors.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarWidget extends StatefulWidget {
@@ -8,8 +9,7 @@ class CalendarWidget extends StatefulWidget {
 
 class _CalendarWidgetState extends State<CalendarWidget> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
-  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
-      .toggledOn; // Can be toggled on/off by longpressing a date
+  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOn;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
   DateTime? _rangeStart;
@@ -18,7 +18,14 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   @override
   Widget build(BuildContext context) {
     return TableCalendar(
+      headerStyle: HeaderStyle(
+          titleTextStyle: TextStyle(color: AppColors.grayTitle, fontSize: 20)),
       locale: 'pt_BR',
+      calendarStyle: CalendarStyle(
+          canMarkersOverflow: false,
+          rangeHighlightColor: AppColors.hoverRed,
+          rangeEndDecoration: BoxDecoration(color: AppColors.primary),
+          rangeStartDecoration: BoxDecoration(color: AppColors.primary)),
       firstDay: DateTime.utc(2010, 10, 16),
       lastDay: DateTime.utc(2030, 3, 14),
       focusedDay: _focusedDay,

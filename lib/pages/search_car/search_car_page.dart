@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rentx/app/widget/button_rentx.dart';
 import 'package:rentx/pages/search_car/widget/calendar_widget.dart';
 import 'package:rentx/styles/app_colors.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class SearchCarPage extends StatefulWidget {
   const SearchCarPage({Key? key}) : super(key: key);
@@ -13,10 +12,6 @@ class SearchCarPage extends StatefulWidget {
 }
 
 class _SearchCarPageState extends State<SearchCarPage> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -90,9 +85,9 @@ class _SearchCarPageState extends State<SearchCarPage> {
               ],
             ),
           ),
-          CalendarWidget(),
+          Expanded(child: CalendarWidget()),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.only(left: 25, right: 25, bottom: 10),
             width: size.width,
             child: ButtonRentx(
                 label: "Confirmar", color: AppColors.primary, action: () => {}),
