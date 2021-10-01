@@ -6,15 +6,13 @@ import 'package:rentx/styles/app_colors.dart';
 class CardCarResultWidget extends StatelessWidget {
   final CarModel car;
 
-  const CardCarResultWidget(
-      {Key? key,
-      required this.car})
-      : super(key: key);
+  const CardCarResultWidget({Key? key, required this.car}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.main,
+      elevation: 0.5,
       child: Container(
         padding: EdgeInsets.all(24),
         width: MediaQuery.of(context).size.width,
