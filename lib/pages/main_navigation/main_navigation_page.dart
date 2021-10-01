@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rentx/pages/main_navigation/profile/profile_page.dart';
+import 'package:rentx/pages/main_navigation/results/results_page.dart';
+import 'package:rentx/pages/main_navigation/scheduling/scheduling_page.dart';
 import 'package:rentx/styles/app_colors.dart';
+
+import 'list_car/list_car_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({Key? key}) : super(key: key);
@@ -9,110 +14,39 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
+  List<Widget> pagesNavigation = [
+    ResultsPage(),
+    ListCarPage(),
+    SchedulingPage(),
+    ProfilePage()
+  ];
+  int indexPage = 0;
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
-        body: Column(
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 25),
-          color: AppColors.black,
-          width: size.width,
-          height: size.height * 0.15,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'DE',
-                        style: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.grayText,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "16 junho 2020",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      )
-                    ],
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_outlined,
-                        color: AppColors.grayText,
-                      )),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'ATÉ',
-                        style: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.grayText,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "16 junho 2020",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 24, left: 16, right: 16),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Resultados',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.grayTitle),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        '3 carros',
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.grayTextDetails),
-                      ),
-                      SizedBox(width: 26),
-                      IconButton(onPressed: () {}, icon: Icon(Icons.tune, size: 32))
-                    ],
-                  ),
-                ],
-              ),
+      body: pagesNavigation.elementAt(indexPage),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColors.primary,
+        currentIndex: indexPage,
+        onTap: stepToScreen,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "_"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.directions_car_outlined), label: "_"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today_outlined), label: "_"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline_outlined), label: "_"),
+        ],
+      ),
+    );
+  }
 
-            ],
-          ),
-        )
-      ],
-    ));
+  stepToScreen(int index) {
+    setState(() {
+      indexPage = index;
+    });
   }
 }
