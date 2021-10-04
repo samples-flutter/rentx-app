@@ -11,6 +11,15 @@ class ListCarPage extends StatefulWidget {
 }
 
 class _ListCarPageState extends State<ListCarPage> {
+  final listCar = [
+    CarModel("Lamborghini", "Huracan", "images/lambo.png", "580", false),
+    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
+    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
+    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
+    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
+    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -60,7 +69,6 @@ class _ListCarPageState extends State<ListCarPage> {
                           height: 56,
                           width: size.width * 0.76,
                           child: TextField(
-
                             decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.symmetric(horizontal: 24),
@@ -95,14 +103,10 @@ class _ListCarPageState extends State<ListCarPage> {
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              shrinkWrap: true,
               itemCount: 4,
               itemBuilder: (context, index) => Column(
                 children: [
-                  CarItemListWidget(
-                    car: CarModel("Lamborghini", "Huracan", "images/lambo.png",
-                        "580", false),
-                  ),
+                  CarItemListWidget(car: listCar[index]),
                   SizedBox(height: 14)
                 ],
               ),
