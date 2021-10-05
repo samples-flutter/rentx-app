@@ -63,6 +63,7 @@ flutter:
     - images/gas.svg
     - images/eletric.svg
     - images/person.png
+    - images/porche.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

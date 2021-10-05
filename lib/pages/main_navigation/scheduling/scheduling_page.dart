@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:rentx/app/data.dart';
 import 'package:rentx/pages/main_navigation/list_car/widget/car_item_list_widget.dart';
 import 'package:rentx/pages/main_navigation/model/car_model.dart';
 import 'package:rentx/styles/app_colors.dart';
@@ -9,6 +10,8 @@ class SchedulingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<CarModel> cars = Data.getCars();
+
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -16,7 +19,7 @@ class SchedulingPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 25),
           color: AppColors.black,
           width: size.width,
-          height: size.height * 0.2,
+          height: size.height * 0.15,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,7 +31,7 @@ class SchedulingPage extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
               Text(
-                '5 períodos',
+                '${cars.length} períodos',
                 style: TextStyle(
                     color: AppColors.grayText,
                     fontSize: 13,
@@ -41,12 +44,11 @@ class SchedulingPage extends StatelessWidget {
           child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             shrinkWrap: true,
-            itemCount: 4,
+            itemCount: cars.length,
             itemBuilder: (context, index) => Column(
               children: [
                 CarItemListWidget(
-                  car: CarModel("Lamborghini", "Huracan", "images/lambo.png",
-                      "580", false),
+                  car: cars[index],
                 ),
                 SizedBox(height: 2),
                 Container(

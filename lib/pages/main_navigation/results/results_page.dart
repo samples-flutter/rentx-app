@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentx/app/data.dart';
 import 'package:rentx/pages/main_navigation/model/car_model.dart';
 import 'package:rentx/pages/main_navigation/results/widget/card_car_result_widget.dart';
 import 'package:rentx/styles/app_colors.dart';
@@ -11,6 +12,8 @@ class ResultsPage extends StatefulWidget {
 }
 
 class _ResultsPageState extends State<ResultsPage> {
+  final List<CarModel> listCar = Data.getCars();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -100,7 +103,7 @@ class _ResultsPageState extends State<ResultsPage> {
                     Row(
                       children: [
                         Text(
-                          '10 carros',
+                          '${listCar.length} carros',
                           style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w400,
@@ -116,12 +119,11 @@ class _ResultsPageState extends State<ResultsPage> {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: listCar.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: CardCarResultWidget(
-                      car: CarModel("Lamborghini", "Huracan", "images/lambo.png",
-                          "580", false),
+                      car: listCar[index],
                     ),
                   ),
                 ),

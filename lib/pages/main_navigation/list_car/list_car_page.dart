@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentx/app/data.dart';
 import 'package:rentx/pages/main_navigation/list_car/widget/car_item_list_widget.dart';
 import 'package:rentx/pages/main_navigation/model/car_model.dart';
 import 'package:rentx/styles/app_colors.dart';
@@ -11,14 +12,7 @@ class ListCarPage extends StatefulWidget {
 }
 
 class _ListCarPageState extends State<ListCarPage> {
-  final listCar = [
-    CarModel("Lamborghini", "Huracan", "images/lambo.png", "580", false),
-    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
-    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
-    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
-    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
-    CarModel("Audi", "Huracan", "images/audi.png", "580", false),
-  ];
+  final List<CarModel> listCar = Data.getCars();
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +40,7 @@ class _ListCarPageState extends State<ListCarPage> {
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        '4 carros',
+                        '${listCar.length} carros',
                         style: TextStyle(
                             color: AppColors.grayText,
                             fontSize: 13,
@@ -80,7 +74,10 @@ class _ListCarPageState extends State<ListCarPage> {
                             ),
                           ),
                         ),
-                        Container(color: Colors.white, width: 2),
+                        Container(
+                          color: Colors.white,
+                          width: 8,
+                        ),
                         Expanded(
                           child: Material(
                             color: AppColors.main,
